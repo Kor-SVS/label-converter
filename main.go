@@ -13,6 +13,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/sqweek/dialog"
+	"github.com/yargevad/filepathx"
 )
 
 const (
@@ -227,19 +228,19 @@ func main() {
 
 		pathBuffer := make([]string, 0)
 
-		tmp, err := filepath.Glob(filepath.Join(dirPath, "*.[tT][eE][xX][tT][gG][rR][iI][dD]"))
+		tmp, err := filepathx.Glob(filepath.Join(dirPath, "*.[tT][eE][xX][tT][gG][rR][iI][dD]"))
 		checkErr(err)
 		pathBuffer = append(pathBuffer, tmp...)
 
-		tmp, err = filepath.Glob(filepath.Join(dirPath, "*", "*.[tT][eE][xX][tT][gG][rR][iI][dD]"))
+		tmp, err = filepathx.Glob(filepath.Join(dirPath, "**", "*.[tT][eE][xX][tT][gG][rR][iI][dD]"))
 		checkErr(err)
 		pathBuffer = append(pathBuffer, tmp...)
 
-		tmp, err = filepath.Glob(filepath.Join(dirPath, "*.[lL][aA][bB]"))
+		tmp, err = filepathx.Glob(filepath.Join(dirPath, "*.[lL][aA][bB]"))
 		checkErr(err)
 		pathBuffer = append(pathBuffer, tmp...)
 
-		tmp, err = filepath.Glob(filepath.Join(dirPath, "*", "*.[lL][aA][bB]"))
+		tmp, err = filepathx.Glob(filepath.Join(dirPath, "**", "*.[lL][aA][bB]"))
 		checkErr(err)
 		pathBuffer = append(pathBuffer, tmp...)
 
